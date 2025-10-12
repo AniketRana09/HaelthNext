@@ -7,8 +7,9 @@ import Navbar from "./Components/Navbar";
 import Doctors from "./Pages/Doctors";
 import Login from "./Pages/Login";
 import MyProfile from "./Pages/MyProfile";
-import MyAppointments from "./Pages/MyAppointments";
+
 import Footer from "./Components/Footer";
+import Appointment from "./Pages/Appointment";
 //import { AppContext } from "./Context/AppContext";
 
 const App = () => {
@@ -24,7 +25,7 @@ const App = () => {
           <Route path="/doctors" element={<Doctors />} />
           <Route path="/login" element={<Login />} />
           <Route path="/myprofile" element={<MyProfile />} />
-          <Route path="/myappointments" element={<MyAppointments />} />
+          <Route path="/appointment/:docId" element={<Appointment />} />
         </Routes>
         <Footer />
       </BrowserRouter>

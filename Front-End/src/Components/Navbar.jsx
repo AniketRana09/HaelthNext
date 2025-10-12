@@ -7,7 +7,7 @@ const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [token, setToken] = useState(true);
   return (
-    <div className="p-3 mb-2 flex justify-between shadow-2xl ">
+    <div className="p-3 mb-2 flex justify-between shadow-xl ">
       <div>
         <img
           onClick={() => navigate("/")}

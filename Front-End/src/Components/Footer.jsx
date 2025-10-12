@@ -4,8 +4,8 @@ import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div>
-      <div className="md:flex md:justify-between  mx-10 shadow-lg border border-gray-100 my-4 md:py-8 sm:md-4 md:px-8 rounded-lg">
+    <div className=" w-full bg-white ">
+      <div className="md:flex md:justify-between   shadow-lg border border-gray-100 my-4 md:py-8 sm:md-4 md:px-8 rounded-lg">
         {/* ----- 1st col----- */}
         <div>
           <img src={assets.logo} className="w-52" alt="" />
@@ -42,7 +42,7 @@ const Footer = () => {
           <p className="text-gray-600">AniketRana@github</p>
         </div>
       </div>
-      <p className="text-gray-700 text-center">
+      <p className="text-gray-700 text-center text-sm">
         Copyright &copy; 2025 HealtNest-All Right Reserved
       </p>
     </div>
