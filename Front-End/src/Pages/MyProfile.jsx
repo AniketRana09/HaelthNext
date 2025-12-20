@@ -15,10 +15,11 @@ const MyProfile = () => {
   });
   const [isEdit, setIsEdit] = useState(false);
   return (
-    <div>
-      <img src={userData.image} alt="" />
+    <div className="max-w-lg flex flex-col gap-2 text-sm px-3">
+      <img className="w-36 rounded" src={userData.image} alt="" />
       {isEdit ? (
         <input
+          className="bg-gray-50 text-3xl font-medium max-w-60 mt-4"
           type="text"
           value={userData.name}
           onChange={(e) =>
@@ -26,17 +27,22 @@ const MyProfile = () => {
           }
         />
       ) : (
-        <p>{userData.name}</p>
+        <p className="font-medium text-3xl text-neutral-800 mt-4">
+          {userData.name}
+        </p>
       )}
-      <hr />
+      <hr className="bg-zinc-400 h-[1px] border-none" />
       <div>
-        <p>CONTACT INFORMATION</p>
-        <div>
-          <p>Email id:</p>
-          <p>{userData.email}</p>
-          <p>Phone:</p>
+        <p className="text-neutral-500 mt-3 text-lg underline ">
+          CONTACT INFORMATION
+        </p>
+        <div className="grid grid-cols-[1fr_3fr] gap-2.5 mt-2 text-neutral-700">
+          <p className="font-medium">Email id:</p>
+          <p className=" text-blue-500">{userData.email}</p>
+          <p className="font-medium">Phone:</p>
           {isEdit ? (
             <input
+              className="bg-gray-50"
               type="text"
               value={userData.phone}
               onChange={(e) =>
@@ -46,10 +52,11 @@ const MyProfile = () => {
           ) : (
             <p>{userData.phone}</p>
           )}
-          <p>Address:</p>
+          <p className="font-medium">Address:</p>
           {isEdit ? (
             <p>
               <input
+                className="bg-gray-50"
                 type="text"
                 value={userData.address.line1}
                 onChange={(e) =>
@@ -62,6 +69,7 @@ const MyProfile = () => {
               <br />
               <input
                 type="text"
+                className="bg-gray-50"
                 value={userData.address.line2}
                 onChange={(e) =>
                   setUserData((prev) => ({
@@ -82,9 +90,11 @@ const MyProfile = () => {
       </div>
       {/* Basic Information */}
       <div>
-        <p>Basic Information</p>
-        <div>
-          <p>Gender:</p>
+        <p className="text-neutral-500 mt-3 text-lg underline">
+          BASIC INFORMATION
+        </p>
+        <div className="grid grid-cols-[1fr_4fr]  gap-2.5 mt-3 ">
+          <p className="font-medium text-neutral-700">Gender:</p>
           {isEdit ? (
             <select
               onChange={(e) =>
@@ -97,7 +107,7 @@ const MyProfile = () => {
           ) : (
             <p>{userData.gender}</p>
           )}
-          <p>Birthday:</p>
+          <p className="font-medium text-neutral-700">Birthday:</p>
           {isEdit ? (
             <input
               value={userData.dob}
@@ -115,14 +125,14 @@ const MyProfile = () => {
         {isEdit ? (
           <button
             onClick={() => setIsEdit(false)}
-            className="border border-blue-400 m-2 py-1 px-4 rounded-xl"
+            className="border border-blue-400 m-2 py-2 px-8 rounded-full hover:text-white hover:bg-blue-500"
           >
             Save information
           </button>
         ) : (
           <button
             onClick={() => setIsEdit(true)}
-            className="border border-blue-400 m-2 py-1 px-4 rounded-xl"
+            className="border border-blue-400 m-2 py-2 px-8 rounded-full hover:text-white hover:bg-blue-500"
           >
             Edit
           </button>

@@ -40,7 +40,7 @@ const Navbar = () => {
           <div className="flex gap-2 items-center cursor-pointer  relative group">
             <img src={assets.profile_pic} className="w-8 rounded-full" />
             <img src={assets.dropdown_icon} className="w-2.5" />
-            <div className="absolute top-0 right-0 pt-20 font-medium text-base text-gray-600  z-20 hidden group-hover:block">
+            <div className="absolute top-0 right-0 pt-15 font-medium text-base text-gray-600  z-20 hidden group-hover:block">
               <div className="min-w-48 bg-stone-100 rounded flex flex-col gap-4 p-4 ">
                 <p
                   onClick={() => navigate("/myprofile")}

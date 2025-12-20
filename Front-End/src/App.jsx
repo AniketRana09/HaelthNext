@@ -10,6 +10,7 @@ import MyProfile from "./Pages/MyProfile";
 
 import Footer from "./Components/Footer";
 import Appointment from "./Pages/Appointment";
+import MyAppointments from "./Pages/MyAppointments";
 //import { AppContext } from "./Context/AppContext";
 
 const App = () => {
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/myprofile" element={<MyProfile />} />
           <Route path="/appointment/:docId" element={<Appointment />} />
+          <Route path="/myappointments" element={<MyAppointments />} />
         </Routes>
         <Footer />
       </BrowserRouter>

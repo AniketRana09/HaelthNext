@@ -33,12 +33,12 @@ const About = () => {
         </div>
       </div>
 
-      <div className="my-4">
-        <p className="text-2xl font-semibold ml-24 text-gray-600">
+      <div className="my-8">
+        <p className="text-2xl font-semibold ml-24  text-gray-600">
           WHY <span className="text-gray-800">CHOOSE US</span>
         </p>
       </div>
-      <div className="flex  flex-col md:flex-row gap-5 text-[15px] justify-center text-gray-600">
+      <div className="flex  flex-col md:flex-row gap-5 text-[15px] justify-center text-gray-600 m-10">
         <div className=" border border-gray-700 py-14 px-10">
           <b className="text-gray-800 my-3"> EFFICIENCY:</b>
           <p className="my-3">

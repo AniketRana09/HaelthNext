@@ -3,12 +3,12 @@ import { assets } from "../assets/assets";
 const Contact = () => {
   return (
     <div>
-      <div className="text-center text-2xl pt-10 text-gray-500">
+      <div className="text-center text-2xl pt-10 text-gray-500 ">
         <h2>
           Contact <span className="font-semibold text-gray-700">Us</span>
         </h2>
       </div>
-      <div className="flex w-full md:max-w-3/4 px-5 justify-center my-10 ">
+      <div className="flex w-full md:max-w-3/4 px-5 justify-center mb-36 mx-10 ">
         <img className="w-full md:max-w-[360px]" src={assets.contact_image} />
         <div className="flex flex-col gap-6 p-5 ">
           <p className="font-semibold text-lg text-gray-600">Our OFFICE</p>
