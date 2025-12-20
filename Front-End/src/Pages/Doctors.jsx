@@ -6,6 +6,7 @@ const Doctors = () => {
   console.log(speciality);
   const navigate = useNavigate();
   const [filterDoc, setFilterDoc] = useState([]);
+  const [showFilter, setShowFilter] = useState(false);
   const { doctors } = useContext(AppContext);
   const applyFilter = () => {
     if (speciality) {
@@ -19,11 +20,23 @@ const Doctors = () => {
   }, [doctors, speciality]);
   return (
     <div>
-      <h2 className="font-medium text-gray-800">
+      <h2 className="font-medium text-gray-800 pl-8">
         Browse through the doctors specialist{" "}
       </h2>
       <div className="flex flex-col sm:flex-row justify-center gap-5 mt-5">
-        <div className="w-1/6 md:w-1/6 flex flex-col gap-3  text-sm text-gray-600 mx-5 px-5">
+        <button
+          onClick={() => setShowFilter((prev) => !prev)}
+          className={`border ml-3 py-1 px-3  w-2/6 rounded m-2 text-sm transition-all sm:hidden ${
+            showFilter ? "bg-blue-500 text-white" : ""
+          }`}
+        >
+          Filters
+        </button>
+        <div
+          className={` flex-col gap-4  text-sm text-gray-600 ml-5 px-5 ${
+            showFilter ? "flex" : "hidden sm:flex"
+          }`}
+        >
           <p
             onClick={() =>
               speciality === "General physician"
