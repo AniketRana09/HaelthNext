@@ -48,7 +48,8 @@ const doctorSchema = new mongoose.Schema(
       required: true,
     },
     date: {
-      type: Number,
+      type: Date,
+      default: Date.now(),
       required: true,
     },
     slots_booked: {
@@ -56,6 +57,8 @@ const doctorSchema = new mongoose.Schema(
       default: {},
     },
   },
-  { minimize: false },
-  { timestamps: true }
+  { timestamps: true, minimize: false }
 );
+const doctorModel = mongoose.model("docotr", doctorSchema);
+
+export default doctorModel;
