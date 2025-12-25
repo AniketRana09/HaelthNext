@@ -12,7 +12,13 @@ const SpecialityMenu = () => {
         Simply browse through our extensive list of trused doctors,schedule your
         appointments
       </p>
-      <div className="w-3/4 flex  justify-center  gap-5 pt-5 overflow-hidden overflow-x-scroll  scrollbar-hide">
+      <div
+        className=" w-3/4 flex gap-3 text-center pt-8 px-4
+    overflow-x-scroll scrollbar-hide
+    justify-start
+    md:overflow-x-visible
+    md:justify-center"
+      >
         {specialityData.map((item, index) => (
           <Link
             key={index}
