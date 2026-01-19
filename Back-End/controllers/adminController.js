@@ -101,12 +101,12 @@ const loginAdmin = async (req, res) => {
     ) {
       const token = jwt.sign(email + password, process.env.JWT_SECRET);
       res.json({
-        succes: true,
+        success: true,
         token,
       });
     } else {
       res.status(400).json({
-        succes: false,
+        success: false,
         message: "Invalid Credentials",
       });
     }
