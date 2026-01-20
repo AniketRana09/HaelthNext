@@ -45,7 +45,7 @@ const Navbar = () => {
             <img src={assets.profile_pic} className="w-8 rounded-full" />
             <img src={assets.dropdown_icon} className="w-2.5" />
             {open && (
-              <div className="absolute top-full right-0 mt-2  font-medium text-base text-gray-600  z-10  md:hidden md:group-hover:block">
+              <div className="absolute top-full right-0 mt-2  font-medium text-base text-gray-600  z-10 ">
                 <div className="min-w-48 bg-stone-100 rounded flex flex-col gap-4 p-4 ">
                   <p
                     onClick={() => navigate("/myprofile")}
