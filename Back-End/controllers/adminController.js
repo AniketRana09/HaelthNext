@@ -36,7 +36,7 @@ const addDoctor = async (req, res) => {
     }
     //<----validating email format----------->
     if (!validator.isEmail(email)) {
-      return res.stauts(400).json({
+      return res.status(400).json({
         success: false,
         message: "Please enter a valid email",
       });
@@ -120,4 +120,15 @@ const loginAdmin = async (req, res) => {
   }
 };
 
-export { addDoctor, loginAdmin };
+//Api to get all doctors data
+const allDoctors = async (req, res) => {
+  try {
+    const doctors = await doctorModel.find({}).select("-password");
+    res.json({ success: true, doctors });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, error: error.message });
+  }
+};
+
+export { addDoctor, loginAdmin, allDoctors };

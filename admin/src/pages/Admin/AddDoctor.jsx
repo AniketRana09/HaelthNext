@@ -13,7 +13,7 @@ const AddDoctor = () => {
   const [fees, setFees] = useState("");
   const [about, setAbout] = useState("");
   const [speciality, setSpeciality] = useState("General Physician");
-  const [education, setEducation] = useState("");
+  const [degree, setDegree] = useState("");
   const [address1, setAddress1] = useState("");
   const [address2, setAddress2] = useState("");
   const { aToken, backendUrl } = useContext(AdminContext);
@@ -27,11 +27,13 @@ const AddDoctor = () => {
       const formData = new FormData();
       formData.append("image", docImg);
       formData.append("name", name);
+      formData.append("email", email);
       formData.append("password", password);
       formData.append("experience", experience);
       formData.append("fees", fees);
       formData.append("about", about);
-      formData.append("education", education);
+      formData.append("speciality", speciality);
+      formData.append("degree", degree);
       formData.append(
         "address",
         JSON.stringify({ line1: address1, line2: address2 }),
@@ -42,7 +44,7 @@ const AddDoctor = () => {
         console.log(`${key}:${value}`);
       });
       const { data } = await axios.post(
-        backendUrl + "/api/admin/admin-doctor",
+        backendUrl + "/api/admin/add-doctor",
         formData,
         { headers: { aToken } },
       );
@@ -54,14 +56,14 @@ const AddDoctor = () => {
         SetEmail("");
         setAddress1("");
         setAddress2("");
-        setEducation("");
+        setDegree("");
         setAbout("");
         setFees("");
       } else {
         toast.error(data.message);
       }
     } catch (error) {
-      toast.error(error.message);
+      toast.error(error.response.data.error || error.response.data.message);
       console.log(error);
     }
   };
@@ -146,12 +148,13 @@ const AddDoctor = () => {
                 <option value="9 year">9 year</option>
               </select>
             </div>
-            <div>
-              <p className="flex-1 flex flex-col gap-1">Fees</p>
+            <div className="flex-1 flex flex-col gap-1">
+              <p>Fees</p>
               <input
                 onChange={(e) => setFees(e.target.value)}
                 value={fees}
                 type="number"
+                className="border rounded px-3 py-2"
                 placeholder="Your fees"
                 required
               ></input>
@@ -179,8 +182,8 @@ const AddDoctor = () => {
             <div className="flex-1 flex flex-col gap-1">
               <p>Education</p>
               <input
-                onChange={(e) => setEducation(e.target.value)}
-                value={education}
+                onChange={(e) => setDegree(e.target.value)}
+                value={degree}
                 className="border rounded px-3 py-2"
                 type="text"
                 placeholder="Education"
