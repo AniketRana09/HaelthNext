@@ -40,7 +40,7 @@ const userSchema = new mongoose.Schema(
       default: "0000000000",
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 const userModel = mongoose.models.user || mongoose.model("user", doctorSchema);
 

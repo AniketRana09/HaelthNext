@@ -7,7 +7,8 @@ import Navbar from "./Components/Navbar";
 import Doctors from "./Pages/Doctors";
 import Login from "./Pages/Login";
 import MyProfile from "./Pages/MyProfile";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Footer from "./Components/Footer";
 import Appointment from "./Pages/Appointment";
 import MyAppointments from "./Pages/MyAppointments";
@@ -15,8 +16,9 @@ import MyAppointments from "./Pages/MyAppointments";
 
 const App = () => {
   return (
-    <div>
+    <div className="mx-4 sm:mx-[10%]">
       <BrowserRouter>
+        <ToastContainer />
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
