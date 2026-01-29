@@ -1,6 +1,6 @@
 import validator from "validator";
 import bcrypt from "bcrypt";
-import userModel from "../models/userModel";
+import userModel from "../models/userModel.js";
 import jwt from "jsonwebtoken";
 //Api to register user
 
@@ -46,4 +46,34 @@ const registerUser = async (req, res) => {
   }
 };
 
-export { registerUser };
+//API FOR LOGIN
+const loginUser = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const user = await userModel.findOne({ email: email });
+    if (!user) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid Credentials",
+      });
+    }
+    const isPassword = await bcrypt.compare(password, user.password);
+    if (isPassword) {
+      const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+      res.json({
+        success: true,
+        token,
+      });
+    } else {
+      res.json({
+        success: false,
+        message: "Invalid Credentials",
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, error: error.message });
+  }
+};
+
+export { registerUser, loginUser };
