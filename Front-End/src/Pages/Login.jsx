@@ -4,7 +4,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 const Login = () => {
-  const { backendurl, token, setToken } = useContext(AppContext);
+  const { backendUrl, token, setToken } = useContext(AppContext);
   const [state, setState] = useState("Sign Up");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,7 +14,7 @@ const Login = () => {
     event.preventDefault();
     try {
       if (state === "Sign Up") {
-        const { data } = await axios.post(backendurl + "/api/user/register", {
+        const { data } = await axios.post(backendUrl + "/api/user/register", {
           name,
           password,
           email,
@@ -26,7 +26,7 @@ const Login = () => {
           toast.error(data.message);
         }
       } else {
-        const { data } = await axios.post(backendurl + "/api/user/login", {
+        const { data } = await axios.post(backendUrl + "/api/user/login", {
           password,
           email,
         });
@@ -38,7 +38,7 @@ const Login = () => {
         }
       }
     } catch (error) {
-      toast.error(data.message);
+      toast.error(error.message);
     }
   };
   useEffect(() => {

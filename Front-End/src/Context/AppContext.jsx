@@ -8,7 +8,7 @@ export const AppContext = createContext();
 const AppContextProvider = (props) => {
   const backendUrl = import.meta.env.VITE_BACKENDURL;
   const [doctors, setDoctors] = useState([]);
-  const [token, setToken] = useState("");
+  const [token, setToken] = useState(localStorage.getItem("token") || false);
   const getDoctorsData = async () => {
     try {
       const { data } = await axios.get(backendUrl + "/api/doctor/list");

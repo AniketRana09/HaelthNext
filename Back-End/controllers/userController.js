@@ -76,4 +76,7 @@ const loginUser = async (req, res) => {
   }
 };
 
+// API TO GET USER PROFILE DATA
+const getProfile = async(req, res);
+
 export { registerUser, loginUser };
