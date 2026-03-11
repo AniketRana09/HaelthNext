@@ -77,6 +77,29 @@ const loginUser = async (req, res) => {
 };
 
 // API TO GET USER PROFILE DATA
-const getProfile = async(req, res);
+const getProfile = async (req, res) => {
+  try {
+    const userId = req.userId;
+    const userData = await userModel.findById(userId).select("-password");
+    res.json({ success: true, userData });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, error: error.message });
+  }
+};
+//API TO UPDATE USER PROFILE
 
-export { registerUser, loginUser };
+const updateProfile = async (req, res) => {
+  try {
+    const { userId, name, phone, address, dob, gender } = req.body;
+    const imageFile = req.file;
+    if (!name || !phone || !dob || !gender) {
+      return res.json({ success: false, message: "Data Missing" });
+    }
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, error: error.message });
+  }
+};
+
+export { registerUser, loginUser, getProfile };
